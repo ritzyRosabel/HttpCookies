@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,17 +12,34 @@ namespace HttpCookies.Controllers
         public ActionResult Index()
         {
             var name = "opemipo";
-            var named = "mipo";
-            HttpCookie cookie = new HttpCookie("opecookie");
-            cookie["username"] = name;
-            cookie["opecookie"] = named;
+       
 
-
-            ViewBag.cookie = cookie["username"];
-            ViewBag.cookied = cookie["opecookie"];
+            HttpCookie cookie = new HttpCookie("cookie");
+            cookie["username"] = name; 
             ViewBag.cookieds = cookie["username"];
-            ViewBag.cookies = cookie.Value;
+            ViewBag.cooky = cookie.Value;
+            Response.Cookies.Add(cookie);
+
             ///////////////////////////////////////////
+
+            
+            Response.Cookies.Get("usernames");
+            if (cookie == null)
+            {
+                cookie["ope"] = "kola";
+                ViewBag.cookie = cookie.Value;
+
+            }
+            else
+            {
+                cookie["mipo"] = "kola";
+                ViewBag.sb = "hello";
+                ViewBag.cookid = cookie.Value;
+
+            }
+
+            Response.Cookies.Remove("username");
+            ViewBag.cookied = cookie.Value;
 
             return View();
         }
