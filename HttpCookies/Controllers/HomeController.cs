@@ -10,6 +10,11 @@ namespace HttpCookies.Controllers
     {
         public ActionResult Index()
         {
+            var name = "opemipo";
+            var named = "mipo";
+            HttpCookie cookie = new HttpCookie("opecookie");
+           
+///////////////////////////////////////////
           
             return View();
         }
