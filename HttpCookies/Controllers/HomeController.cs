@@ -13,9 +13,16 @@ namespace HttpCookies.Controllers
             var name = "opemipo";
             var named = "mipo";
             HttpCookie cookie = new HttpCookie("opecookie");
-           
-///////////////////////////////////////////
-          
+            cookie["username"] = name;
+            cookie["opecookie"] = named;
+
+
+            ViewBag.cookie = cookie["username"];
+            ViewBag.cookied = cookie["opecookie"];
+            ViewBag.cookieds = cookie["username"];
+            ViewBag.cookies = cookie.Value;
+            ///////////////////////////////////////////
+
             return View();
         }
 
