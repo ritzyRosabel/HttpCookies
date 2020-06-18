@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,6 +10,8 @@ namespace HttpCookies.Controllers
 {
     public class HomeController : Controller
     {
+        //  If this code works, then it was writen by Rosabel Olugbenga. If it doesn't, then i can only say one thing  "IT IS WHAT IT IS".
+
         public ActionResult Index()
         {
             var name = "opemipo";
@@ -39,9 +42,12 @@ namespace HttpCookies.Controllers
             }
 
             Response.Cookies.Remove("username");
-            ViewBag.cookied = cookie.Value;
+            ///////////////////////////////////////////
 
-            return View();
+            cookie.Expires.Add(new TimeSpan(0,0,3));
+            Timer timer = new Timer();
+            timer.
+                return View();
         }
 
         public ActionResult About()
